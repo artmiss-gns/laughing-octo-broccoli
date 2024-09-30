@@ -1,6 +1,10 @@
 import json
-from get_data import get_data
+from src.get_data import get_data
+from cachetools import cached, TTLCache
 
+cache = TTLCache(maxsize=100, ttl=60)
+
+@cached(cache)
 def convert_currency(currency_inp, currency_inp_value, currency_out, data):
     if currency_inp == currency_out:
         return currency_inp_value  # No conversion needed if both currencies are the same

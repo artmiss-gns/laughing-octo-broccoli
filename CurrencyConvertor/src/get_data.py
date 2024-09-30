@@ -1,6 +1,6 @@
 import requests
 import os
-from utils import get_env_value
+from src.utils import get_env_value
 
 # Load environment variables from the .env file
 APIKEY = get_env_value("APIKEY")
